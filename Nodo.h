@@ -1,29 +1,26 @@
+//codigo de semana6 hecho en clase
+//puede tener errores ya que iba copiando rapido
 
-//Codigo de la semana 5
 
 #ifndef NODO_H
 #define NODO_H
-#include "Estudiante.h"
+#include "Trabajador.h"
 
 class Nodo {
     private:
-        Estudiante valor;
-        Nodo* siguiente;
-
-
-
-
+        Trabajador *Valor;
+        Nodo *Siguiente;
+        
 
     public:
 
-        Nodo(Estudiante v, Nodo *sig = nullptr) {
-
-            this->valor = v;
-            this->siguiente = sig;  
+        Nodo(Trabajador *v, Nodo *sig=nullptr){ 
+            this->Valor = v;
+            this->Siguiente = sig;
 
         }
-        friend class Lista;
 
+       friend class Lista;
 };
 
 
@@ -33,9 +30,4 @@ class Nodo {
 
 
 
-
-
-
-
-
-#endif 
+#endif
