@@ -1,15 +1,41 @@
-#ifndef NODO
-#define NODO
-#include <stdio.h>
-class Nodo{
+
+//Codigo de la semana 5
+
+#ifndef NODO_H
+#define NODO_H
+#include "Estudiante.h"
+
+class Nodo {
     private:
-        int valor;
-        Nodo *siguiente;
+        Estudiante valor;
+        Nodo* siguiente;
+
+
+
+
+
     public:
-        Nodo(int v, Nodo *sig=NULL){
+
+        Nodo(Estudiante v, Nodo *sig = nullptr) {
+
             this->valor = v;
-            this->siguiente = sig;
+            this->siguiente = sig;  
+
         }
         friend class Lista;
+
 };
-#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif 

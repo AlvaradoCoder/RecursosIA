@@ -1,40 +1,64 @@
-#ifndef LISTA
-#define LISTA
+
+//Codigo de la semana 5
+
+#ifndef Lista_H
+#define Lista_H
 #include "Nodo.h"
 #include <iostream>
+
 using namespace std;
+
 class Lista{
     private:
+
         Nodo *Primero;
         Nodo *Ultimo;
         bool ListaVacia(){
-            return (this->Primero==NULL);
+            return this->Primero == nullptr;
         }
-    public:
-        Lista(){
-            this->Primero = NULL;
-            this->Ultimo = NULL;
-        }
-        ~Lista(){
 
+    public:
+
+        Lista(){
+
+            this->Primero = nullptr;
+            this->Ultimo = nullptr;
         }
-        void Insertar(int v){
-            Nodo *nuevo = new Nodo(v);
-            if (this->ListaVacia()){
+        ~Lista(){}
+        void Insertar(Estudiante v){
+            Nodo* nuevo = new Nodo(v);
+            if(this->ListaVacia()){
                 this->Primero = nuevo;
-            }
-            else{
+                this->Ultimo = nuevo;  
+             }else{
                 this->Ultimo->siguiente = nuevo;
-            }
-            this->Ultimo = nuevo;
+                this->Ultimo = nuevo;
+             }
         }
+
         void Mostrar(){
             Nodo *tmp = this->Primero;
-            while (tmp){
-                cout << tmp->valor << "-->";
+            if(!this->ListaVacia()){
+                cout <<"Id\tNombre\tApellido\tNotaFinal\n";
+                while(tmp){
+                cout << tmp->valor.getIdEstudiante() << " \t ";
+                cout << tmp->valor.getNombre() << " \t ";
+                cout << tmp->valor.getApellido() << " \t ";
+                cout << tmp->valor.getNotaFinal() << " \n ";
                 tmp = tmp->siguiente;
             }
-            cout << "NULL\n";
+            cout << "NULL\n" << endl;
+            }else{
+                cout << "La lista esta vacia" << endl;
+            }
+            
+            
         }
+
+    
+
 };
-#endif
+
+
+
+#endif 
